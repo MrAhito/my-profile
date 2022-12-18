@@ -42,6 +42,10 @@ class About extends Component {
             ]
         }
     }
+
+  getImageUrl(name) {
+      return new URL(`../assets/technologies/${name}.svg`, import.meta.url).href 
+  }
   render() {
     return (
       <section id='about-me'>
@@ -53,7 +57,7 @@ class About extends Component {
                 <h2><Icons.TbCode /> Technologies</h2>
                 <ul className='tech_list'>
                     {this.state.techs.map((v, i) => {
-                        return <li key={i} title={v.name} ><img style={{border: "2px solid " + v.color}} src={'./src/assets/technologies/'+v.name+'.svg'}  alt={v.name} /></li>;
+                        return <li key={i} title={v.name} ><img style={{border: "2px solid " + v.color}} src={this.getImageUrl(v.name)}  alt={v.name} /></li>;
                     })}
                 </ul>
             </div>

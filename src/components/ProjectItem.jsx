@@ -4,11 +4,14 @@ import * as Icons  from "react-icons/md";
 import TextAnim from './TextAnim';
 
 class ProjectItem extends Component {
-  render() {
+    getImageUrl(name) {
+        return new URL(`../assets/projects/${name}`, import.meta.url).href 
+    }
+    render() {
     return (
         <div className='project_content'>
             <div className='img_holder'>
-                <img src={'./src/assets/projects/' + this.props.data.img} alt='Project Thumbnail' />
+                <img src={this.getImageUrl(this.props.data.img)} alt='Project Thumbnail' />
             </div>
             <div className='project_data'>
                 <h2>{this.props.data.name}</h2>
